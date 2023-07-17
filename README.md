@@ -7,8 +7,17 @@
 ![PyDub](https://img.shields.io/badge/PyDub-library-blue)
 ![Scipy](https://img.shields.io/badge/Scipy-library-blue)
 
-
 ## We all wish that Siri was better... 
-The first step to fixing that problem is creating an assistant that is a lot "smarter" and more conversational then Siri. Enter OpenAI's ChatGPT. Using a GPT endpoint, Azure's Cognitive Services and a couple of Python libraries I wrote a script to record the user speaking, transcribe the recording, send a request to gpt-3.5 and then play the recording back. I also used threads to make things run a bit faster. 
+
+The first step to fixing that problem is creating an assistant that is a lot "smarter" and more conversational then Siri. 
+
+Leveraging a **GPT endpoint**, along with **Azure's Cognitive Services** and a couple of **Python libraries**, I was able to make a first stab at this.
+
+### Here's what I did:
+- Wrote a script to record the user speaking.
+- Transcribed the recording with  **Azure**.
+- Sent a request to **gpt-3.5** with the transcription
+- Created a spoken recording of the gpt response, once again using Azure's Cognitive Services.
+- Incorporated **multithreading** to speed things up. 
 
 ![Project Image](https://modellma2.files.wordpress.com/2015/09/screen-shot-2015-10-14-at-14-11-58.png) 
