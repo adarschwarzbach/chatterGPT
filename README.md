@@ -2,25 +2,16 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/adarschwarzbach/chatterGPT)
 ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)
-![SpeechRecognition](https://img.shields.io/badge/SpeechRecognition-library-blue)
+![Python Threading](https://img.shields.io/badge/Python-Threading-blue)
+![Azure Cognitive Services](https://img.shields.io/badge/Azure-Cognitive%20Services-blue)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT-blue)
+![SoundDevice](https://img.shields.io/badge/SoundDevice-library-blue)
 ![PyDub](https://img.shields.io/badge/PyDub-library-blue)
-![OpenAI GPT](https://img.shields.io/badge/OpenAI%20GPT-model-blue)
+![Scipy](https://img.shields.io/badge/Scipy-library-blue)
 
-![Project Image](project-image-url)  <!-- Replace with your project image URL -->
 
-## Introduction
+![Project Image](https://modellma2.files.wordpress.com/2015/09/screen-shot-2015-10-14-at-14-11-58.png)  <!-- Replace with your project image URL -->
 
-The GPT-Based Audio Assistant is an advanced application that combines voice recognition, NLP (Natural Language Processing), and audio playback to create an interactive experience. Users can input a command or question via audio, the application transcribes this audio to text, processes the input with OpenAI's GPT model, and then outputs the response in audio format.
+## We all wish that Siri was a bit better... 
+The first step to fixing that problem is creating an assistant that is a lot "smarter" and more conversational then Siri. Enter OpenAI's ChatGPT. Using a GPT endpoint, Azure's Cognitive Services and a couple of Python libraries I wrote a script to record the user speaking, transcribe the recording, send a request to gpt-3.5 and then play the recording back. I also used threads to make things run a bit faster. 
 
-## Installation
-
-**Requirements:** Python 3.9+, SpeechRecognition, PyDub, and OpenAI Python packages.
-
-1. Clone this repository using `git clone https://github.com/username/audio-assistant.git` (Replace `username` with your GitHub username).
-2. Navigate to the project directory.
-3. Install the required Python packages using the command `pip install -r requirements.txt`.
-
-## Usage
-
-```bash
-python3 main.py
