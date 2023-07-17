@@ -10,29 +10,25 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 
 
-# Initialize Azure Speech to Text client
 speech_key, service_region = # YOUR AZURE SPEECH KEY AND REGION HERE
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
-# Initialize OpenAI GPT-3 client
 openai.api_key = # YOUR OPENAI API KEY HERE
 
 def record_audio(output_filename, duration=3, fs=44100):
     """Record audio for a specified duration."""
     recording = sd.rec(int(duration * fs), samplerate=fs, channels=1)  # Use channels=1 for mono recording
-    sd.wait()  # Wait until recording is finished
-    write(output_filename, fs, recording)  # Save as WAV file
+    sd.wait()  
+    write(output_filename, fs, recording) 
 
 
 def speech_to_text(audio, queue):
     audio_config = speechsdk.audio.AudioConfig(filename=audio)
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 
-    # Get the transcription
     result = speech_recognizer.recognize_once_async().get()
     transcription = result.text
 
-    # Put the result in the queue
     queue.put(transcription)
     print(transcription)
 
@@ -41,7 +37,6 @@ def text_to_speech(text, output_filename):
     audio_output = speechsdk.audio.AudioOutputConfig(filename=output_filename)
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_output)
 
-    # Convert the text to speech
     result = speech_synthesizer.speak_text_async(text).get()
 
 
@@ -54,7 +49,6 @@ def chat_with_gpt(input_text, queue):
         ]
     )
     
-    # Put the result in the queue
     print(response)
     queue.put(response['choices'][0]['message']['content'])
 
